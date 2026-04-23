@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Signup</title>
+</head>
+
+<body style="text-align:center; margin-top:100px;">
+
+<h2>Signup</h2>
+
+<input type="text" id="user" placeholder="Username"><br><br>
+<input type="password" id="pass" placeholder="Password"><br><br>
+
+<button onclick="signup()">Create Account</button>
+
+<p id="msg"></p>
+
+<script>
+function signup(){
+    let u = document.getElementById("user").value;
+    let p = document.getElementById("pass").value;
+
+    localStorage.setItem(u, p);
+
+    document.getElementById("msg").innerText = "Account created!";
+}
+</script>
+
+<p><a href="login.html">Go to Login</a></p>
+
+</body>
+</html>

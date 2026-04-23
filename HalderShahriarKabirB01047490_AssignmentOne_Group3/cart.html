@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+
+    <section id="header">
+        <a href="index.html"><img src="logo2.png" class="logo" alt=""></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="authArea">
+                    <a href="login.html">Login</a> /
+                    <a href="signup.html">Signup</a>
+                </li>
+                <li>
+                    <a href="cart.html">
+                        <span id="cart-count">0</span>
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section-p1" style="text-align:center;">
+        <h2>Your Cart</h2>
+        <p>Items added to your shopping cart.</p>
+    </section>
+
+    <section class="section-p1" style="max-width:700px; margin:auto; text-align:center;">
+        <div style="border:1px solid #ddd; padding:30px; border-radius:10px;">
+            <h3>Total Items</h3>
+            <p style="font-size:24px; margin:20px 0;"><span id="cart-items">0</span></p>
+            <button onclick="clearCart()" style="padding:10px 20px; background:#088178; color:white; border:none;">Clear Cart</button>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img src="logo2.png" class="footer-logo" alt="">
+            <h4>Contact</h4>
+            <p>Address: Birmingham Moor Street</p>
+            <p>Phone: +44 07346552009</p>
+            <p>Timing: 10:00 - 17:00, Monday - Friday</p>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="about.html">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="login.html">Sign In</a>
+            <a href="cart.html">View Cart</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+    </footer>
+
+    <script>
+        let cartItems = localStorage.getItem("cartCount") || 0;
+        document.getElementById("cart-items").innerText = cartItems;
+
+        function clearCart() {
+            localStorage.removeItem("cartCount");
+            document.getElementById("cart-items").innerText = 0;
+
+            let cartCount = document.getElementById("cart-count");
+            if (cartCount) {
+                cartCount.innerText = 0;
+            }
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

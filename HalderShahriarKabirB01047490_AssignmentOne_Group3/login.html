@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+</head>
+
+<body style="text-align:center; margin-top:100px;">
+
+<h2>Login</h2>
+
+<input type="text" id="user" placeholder="Username"><br><br>
+<input type="password" id="pass" placeholder="Password"><br><br>
+
+<button onclick="login()">Login</button>
+
+<p id="msg"></p>
+
+<script>
+function login(){
+    let u = document.getElementById("user").value;
+    let p = document.getElementById("pass").value;
+
+    let stored = localStorage.getItem(u);
+
+    if(stored === p){
+        localStorage.setItem("loggedInUser", u);
+        alert("Login successful");
+        window.location.href = "index.html";
+    } else {
+        document.getElementById("msg").innerText = "Wrong details";
+    }
+}
+</script>
+
+<p><a href="signup.html">Create account</a></p>
+
+</body>
+</html>

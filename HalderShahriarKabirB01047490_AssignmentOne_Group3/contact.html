@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+
+    <section id="header">
+        <a href="index.html"><img src="logo2.png" class="logo" alt=""></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="authArea">
+                    <a href="login.html">Login</a> /
+                    <a href="signup.html">Signup</a>
+                </li>
+                <li>
+                    <a href="cart.html">
+                        <span id="cart-count">0</span>
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section-p1" style="text-align:center;">
+        <h2>Contact Us</h2>
+        <p>Send us your message or enquiry.</p>
+    </section>
+
+    <section class="section-p1" style="display:flex; flex-wrap:wrap; gap:30px;">
+        <div style="flex:1; min-width:300px;">
+            <h3>Get In Touch</h3>
+            <p><strong>Address:</strong> Birmingham Moor Street</p>
+            <p><strong>Phone:</strong> +44 07346552009</p>
+            <p><strong>Email:</strong> support@trendify.com</p>
+            <p><strong>Hours:</strong> Monday - Friday, 10:00 - 17:00</p>
+        </div>
+
+        <div style="flex:1; min-width:300px;">
+            <h3>Send Message</h3>
+            <form onsubmit="return validateForm()">
+                <input type="text" id="name" placeholder="Your Name" style="width:100%; padding:12px; margin-bottom:10px;">
+                <input type="email" id="email" placeholder="Your Email" style="width:100%; padding:12px; margin-bottom:10px;">
+                <textarea id="message" placeholder="Your Message" style="width:100%; padding:12px; height:140px; margin-bottom:10px;"></textarea>
+                <button type="submit" style="padding:10px 20px; background:#088178; color:white; border:none;">Send</button>
+            </form>
+            <p id="error" style="margin-top:10px; color:red;"></p>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img src="logo2.png" class="footer-logo" alt="">
+            <h4>Contact</h4>
+            <p>Address: Birmingham Moor Street</p>
+            <p>Phone: +44 07346552009</p>
+            <p>Timing: 10:00 - 17:00, Monday - Friday</p>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="about.html">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="login.html">Sign In</a>
+            <a href="cart.html">View Cart</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+    </footer>
+
+    <script>
+        function validateForm() {
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let message = document.getElementById("message").value.trim();
+            let error = document.getElementById("error");
+
+            if (name === "" || email === "" || message === "") {
+                error.innerText = "Please fill in all fields.";
+                return false;
+            }
+
+            if (!email.includes("@") || !email.includes(".")) {
+                error.innerText = "Please enter a valid email.";
+                return false;
+            }
+
+            error.style.color = "green";
+            error.innerText = "Message sent successfully.";
+            return false;
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
